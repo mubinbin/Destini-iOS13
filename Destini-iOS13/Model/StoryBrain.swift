@@ -8,4 +8,8 @@
 
 import Foundation
 
-
+struct StoryBrain {
+    let stories: [Story] = [
+        Story(title: "You see a fork in the road", choice1: "Take a left", choice2: "take a right")
+    ]
+}
