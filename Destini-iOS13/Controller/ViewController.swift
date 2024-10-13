@@ -18,11 +18,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        storyLabel.text = storyBrain.stories[0].title
-        choice1Button.setTitle(storyBrain.stories[0].choice1, for: .normal)
-        choice2Button.setTitle(storyBrain.stories[0].choice2, for: .normal)
+        updateUI()
     }
 
-
+    @IBAction func choiceMade(_ sender: UIButton) {
+        storyBrain.nextStory(userChoice: sender.currentTitle)
+        updateUI()
+    }
+    
+    private func updateUI() {
+        storyLabel.text = storyBrain.getCurStory().title
+        choice1Button.setTitle(storyBrain.getCurStory().choice1, for: .normal)
+        choice2Button.setTitle(storyBrain.getCurStory().choice2, for: .normal)
+    }
 }
 
